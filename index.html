@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="style.css">
+<title>
+   Personal Page
+  </title>
+</head>
+<body>
+<div class="container">
+<img alt="iampcee" data-testid="slackDisplayImage" class="display-img" src="images/IMG_0603.JPG"/>
+<h1 data-testid="slackUserName">
+    The Real Guy
+   </h1>
+<div class="data-attribute">
+<strong>
+     Current Day:
+    </strong>
+<span id="currentDay" data-testid="currentDayOfTheWeek">
+</span>
+</div>
+<div class="data-attribute">
+<strong>
+     Current UTC Time (in milliseconds):
+    </strong>
+<span id="currentTime" data-testid="currentUTCTime">
+</span>
+</div><br>
+<div class="data-attribute">
+<strong>
+     Track: 
+    </strong>
+<span data-testid="myTrack">Frontend Development
+</span>
+</div><br>
+<a data-testid="githubURL" class="github-btn" href="https://github.com/TheRealTechBro/TheRealGuy.git">
+    My GitHub Repository
+   </a>
+<p class="signature">
+    © 2021 TheRealGuy. All rights reserved.
+   </p>
+</div>
+</body>
+</html>
+
+
+
+
+<script nonce="bF0mpCE0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script nonce="bF0mpCE0" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script>
+    (function() {
+        window.onload = function() {
+            parent.iframeLoaded();
+        }
+    })();
+    
+    
+
+        function getCurrentDay() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const currentDate = new Date();
+            const currentDay = currentDate.getDay();
+            return days[currentDay];
+        }
+
+        function getRealTimeData() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+
+     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
+} 
+
+
+        function updateDataAttributes() {
+            const currentDayElement = document.getElementById('currentDay');
+            const realTimeDataElement = document.getElementById('currentTime');
+
+            currentDayElement.textContent = getCurrentDay();
+            realTimeDataElement.textContent = getRealTimeData();
+        }
+
+        setInterval(updateDataAttributes, 1);
+    
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</html>
+    
